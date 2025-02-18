@@ -1,7 +1,12 @@
+version: 1
 services:
-  - name: my-web-site  # サービス名 (任意)
-    build:
-      command: npm install && npm run build  # ビルドコマンド (必要に応じて変更)
-      publish: build  # 公開ディレクトリ (ビルドされたファイルを格納するディレクトリ)
-    routes:
-      - url: "/*"  # すべての URL をこのサービスにルーティング
+  - type: web
+    name: google-ool
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    autoDeploy: true
+    envVars:
+      - key: NODE_VERSION
+        value: 16
