@@ -1,0 +1,7 @@
+services:
+  - name: my-web-site  # サービス名 (任意)
+    build:
+      command: npm install && npm run build  # ビルドコマンド (必要に応じて変更)
+      publish: build  # 公開ディレクトリ (ビルドされたファイルを格納するディレクトリ)
+    routes:
+      - url: "/*"  # すべての URL をこのサービスにルーティング
